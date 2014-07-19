@@ -65,7 +65,7 @@ sudo make install
 
 rm -rf tmp-lcov src/libmongoc # coveralls may pick it up and lie about our coverage
 
-echo "extension=phongo" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+echo "extension=phongo.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
 
 MONGO=`which mongo`
 mongod --version
