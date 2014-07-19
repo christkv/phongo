@@ -33,7 +33,7 @@ script:
   - make test
 
 after_success:
-  - make coveralls
+  - cat ./.travis.scripts/script.gdb | gdb --args php tests/batch/write-0001.phpt
 
 addons:
   coverity_scan:
