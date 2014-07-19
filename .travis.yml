@@ -34,10 +34,14 @@ notifications:
 
 script:
   - find . -name \*core\*
-  - ZEND_DONT_UNLOAD_MODULES=1 USE_ZEND_ALLOC=0 /home/travis/.phpenv/versions/`php -r 'echo PHP_VERSION;'`/bin/php tests/batch/write-0001.phpt
+  - /home/travis/.phpenv/versions/`php -r 'echo PHP_VERSION;'`/bin/php tests/batch/write-0001.phpt
   - cat ./.travis.scripts/script.gdb | gdb --args /home/travis/.phpenv/versions/`php -r 'echo PHP_VERSION;'`/bin/php tests/batch/write-0001.phpt
   - find . -name \*core\*
   - make test
+  - find . -name \*core\*
+  - ZEND_DONT_UNLOAD_MODULES=1 USE_ZEND_ALLOC=0 /home/travis/.phpenv/versions/`php -r 'echo PHP_VERSION;'`/bin/php tests/batch/write-0001.phpt
+  - cat ./.travis.scripts/script.gdb | gdb --args /home/travis/.phpenv/versions/`php -r 'echo PHP_VERSION;'`/bin/php tests/batch/write-0001.phpt
+  - find . -name \*core\*
   - if [ -f output.txt ]; then exit 1; fi
 
 addons:
